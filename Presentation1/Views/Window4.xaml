@@ -1,0 +1,36 @@
+﻿<Window x:Class="Presentation.Views.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.Views"
+        mc:Ignorable="d"
+        Title="Window4" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Label Content="FirstName" HorizontalAlignment="Left" Margin="30,107,0,0" VerticalAlignment="Top" Height="44" Width="108"/>
+            <Label Content="LastName" HorizontalAlignment="Left" Margin="30,173,0,0" VerticalAlignment="Top" Height="44" Width="108"/>
+            <Label Content="Gender" HorizontalAlignment="Left" Margin="30,237,0,0" VerticalAlignment="Top" Height="44" Width="108"/>
+            <Label Content="Adress" HorizontalAlignment="Left" Margin="30,312,0,0" VerticalAlignment="Top" Height="44" Width="108" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="3.667"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-1.025"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <TextBox Text="{Binding nesne2.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,107,334,288"/>
+            <TextBox Text="{Binding nesne2.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,178,334,217"/>
+            <TextBox Text="{Binding nesne2.Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,242,334,153"/>
+            <TextBox Text="{Binding nesne2.Adress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,312,334,83"/>
+            <Button Content="Güncelle" Command="{Binding Guncelgonder}" CommandParameter="{Binding nesne2}" HorizontalAlignment="Left" Margin="580,151,0,0" VerticalAlignment="Top" Height="66" Width="112"/>
+            <Label Content="Id" HorizontalAlignment="Left" Margin="30,41,0,0" VerticalAlignment="Top" Height="44" Width="108"/>
+            <TextBox Text="{Binding nesne2.Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,41,334,354"/>
+
+
+        </Grid>
+
+    </Grid>
+</Window>
