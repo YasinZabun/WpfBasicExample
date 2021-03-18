@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Utils.Base
 {
-    public class ViewModelBase
+    public class ViewModelBase:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

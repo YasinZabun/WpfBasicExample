@@ -56,18 +56,22 @@ namespace DataAccess.Providers
 
             connect = new SQLiteConnection(cString);
             connect.Open();
-            string myCommand = "update notTablosu SET Id = @param6,FirstName = @param7,LastName = @param8,Gender=@param9, Adress=@param10 where Id=@param1 or FirstName=@param2 or LastName=@param3 or Gender=@param4 or Adress=@param5 ";
+            string myCommand = "update notTablosu SET Id = @param7,FirstName =@param8,LastName=@param9,Gender=@param10,Adress=@param11,Image=@param12 where Id=@param1";
+            //string myCommand = "update notTablosu SET Image=@param12 where Id=@param1";
+
             s = new SQLiteCommand(myCommand, connect);
             s.Parameters.AddWithValue("@param1", eski.Id);
             s.Parameters.AddWithValue("@param2", eski.FirstName);
             s.Parameters.AddWithValue("@param3", eski.LastName);
             s.Parameters.AddWithValue("@param4", eski.Gender);
             s.Parameters.AddWithValue("@param5", eski.Adress);
-            s.Parameters.AddWithValue("@param6", yeni.Id);
-            s.Parameters.AddWithValue("@param7", yeni.FirstName);
-            s.Parameters.AddWithValue("@param8", yeni.LastName);
-            s.Parameters.AddWithValue("@param9", yeni.Gender);
-            s.Parameters.AddWithValue("@param10", yeni.Adress);
+            s.Parameters.AddWithValue("@param6", eski.Image);
+            s.Parameters.AddWithValue("@param7", yeni.Id);
+            s.Parameters.AddWithValue("@param8", yeni.FirstName);
+            s.Parameters.AddWithValue("@param9", yeni.LastName);
+            s.Parameters.AddWithValue("@param10", yeni.Gender);
+            s.Parameters.AddWithValue("@param11", yeni.Adress);
+            s.Parameters.AddWithValue("@param12",yeni.Image);
             s.ExecuteNonQuery();
             connect.Close();
 

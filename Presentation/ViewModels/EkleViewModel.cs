@@ -21,7 +21,7 @@ namespace wpfornekdetay.viewmodelfolder
         public ModelClass nesne { get; set; }
         public event EventHandler<ModelClass> ekleveri;
         private Window2 w2;
-        private string _imagename;
+        private string _imagename { get; set; }
         public string ImageName
         {
             get
@@ -31,14 +31,13 @@ namespace wpfornekdetay.viewmodelfolder
             set
             {
                 _imagename = value;
-                RaisePropertyChanged("ImageName");
+                this.RaisePropertyChanged("ImageName");
             }
         }
         public EkleViewModel(Window2 w2)
         {
             this.w2 = w2;
             nesne = new ModelClass();
-            ImageName = "selam";
             OnSave = new RelayCommand<object>((_) => kaydet());
             OnOpenFile = new RelayCommand<object>((_) => openfiledialog());
         }
@@ -56,7 +55,7 @@ namespace wpfornekdetay.viewmodelfolder
                 byte[] imageArray = System.IO.File.ReadAllBytes(filedialog.FileName);
                 string base64Text = Convert.ToBase64String(imageArray);
                 nesne.Image = base64Text;
-                ImageName = "merhaba";
+                ImageName = filedialog.SafeFileName;
             }
             
         }

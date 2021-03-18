@@ -28,7 +28,7 @@
         <TextBox Text="{Binding nesne.Gender, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,242,334,153"/>
         <TextBox Text="{Binding nesne.Adress, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,295,334,100"/>
         <Button Content="Ekle" Command="{Binding OnSave}" CommandParameter="{Binding nesne}" HorizontalAlignment="Left" Margin="591,295,0,0" VerticalAlignment="Top" Height="66" Width="112"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="160,342,0,0" TextWrapping="Wrap" Text="{Binding DataContex.ImageName, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="298"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="160,342,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="{Binding ImageName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="298"/>
         <Button Content="Resim" Command="{Binding OnOpenFile}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="30,341,0,0"/>
         <Image HorizontalAlignment="Left" Height="159" Margin="562,109,0,0" VerticalAlignment="Top" Width="162"
               Source="{Binding nesne.Image, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ImagePathConverter}}"
