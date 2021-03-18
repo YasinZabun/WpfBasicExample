@@ -15,10 +15,12 @@ namespace Utils.others
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value != null)
+            { 
             string base64 = value.ToString();
             byte[] byteArrayImage = System.Convert.FromBase64String(base64);
             //byte[] byteArrayImage = Encoding.ASCII.GetBytes(base64);
-           // var byteArrayImage = value as byte[];
+            // var byteArrayImage = value as byte[];
 
             if (byteArrayImage != null && byteArrayImage.Length > 0)
             {
@@ -32,6 +34,7 @@ namespace Utils.others
 
                 return bitmapImg;
             }
+        }
 
             return null;
         }

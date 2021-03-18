@@ -28,6 +28,8 @@
             <Button Content="Güncelle" Command="{Binding Guncelgonder}" CommandParameter="{Binding nesne2}" HorizontalAlignment="Left" Margin="580,151,0,0" VerticalAlignment="Top" Height="66" Width="112"/>
             <Label Content="Id" HorizontalAlignment="Left" Margin="30,41,0,0" VerticalAlignment="Top" Height="44" Width="108"/>
             <TextBox Text="{Binding nesne2.Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,41,334,354"/>
+            <Label Content="Resim" HorizontalAlignment="Left" Margin="30,369,0,0" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding DataContex.ImageName, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="298" Margin="160,369,0,0"/>
 
 
         </Grid>

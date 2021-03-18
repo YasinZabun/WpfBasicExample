@@ -19,10 +19,25 @@ namespace wpfornekdetay.viewmodelfolder
         public ICommand Guncelgonder { get; set; }
         
         CostumerProvider Provider = CostumerProvider.Instance;
-
+        private string _imagename;
+        public string ImageName 
+        {
+            get
+            {
+                return _imagename;
+            }
+            set
+            {
+                _imagename = value;
+                RaisePropertyChanged("ImageName");
+            }
+        }
 
         public GuncelleViewModel(ref ModelClass ornek,ModelClass ornek1)
         {
+
+           
+            ImageName = "merhaba2";
             //nesne = new ModelClass();
              nesne = ornek;
             //nesne2 = new ModelClass();
@@ -38,6 +53,8 @@ namespace wpfornekdetay.viewmodelfolder
         }
         public void kaydet(ModelClass ornek)
         {
+             ImageName = "selam";
+            
              Provider.update(nesne, ornek);
              nesne.Id = ornek.Id;
              nesne.FirstName = ornek.FirstName;

@@ -4,7 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:wpfornekdetay.viewmodelfolder"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converter="clr-namespace:Utils.others;assembly=Utils"
         Title="Window2" Height="450" Width="800">
+    <Window.Resources>
+        <converter:ImageConverter x:Key="ImagePathConverter" />
+    </Window.Resources>
     <Grid>
         <Label Content="FirstName" HorizontalAlignment="Left" Margin="30,107,0,0" VerticalAlignment="Top" Height="44" Width="108"/>
         <Label Content="LastName" HorizontalAlignment="Left" Margin="30,173,0,0" VerticalAlignment="Top" Height="44" Width="108"/>
@@ -23,9 +27,12 @@
         <TextBox Text="{Binding nesne.LastName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,178,334,217"/>
         <TextBox Text="{Binding nesne.Gender, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,242,334,153"/>
         <TextBox Text="{Binding nesne.Adress, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="160,295,334,100"/>
-        <Button Content="Ekle" Command="{Binding OnSave}" CommandParameter="{Binding nesne}" HorizontalAlignment="Left" Margin="580,151,0,0" VerticalAlignment="Top" Height="66" Width="112"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="160,342,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="298"/>
+        <Button Content="Ekle" Command="{Binding OnSave}" CommandParameter="{Binding nesne}" HorizontalAlignment="Left" Margin="591,295,0,0" VerticalAlignment="Top" Height="66" Width="112"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="160,342,0,0" TextWrapping="Wrap" Text="{Binding DataContex.ImageName, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="298"/>
         <Button Content="Resim" Command="{Binding OnOpenFile}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="30,341,0,0"/>
+        <Image HorizontalAlignment="Left" Height="159" Margin="562,109,0,0" VerticalAlignment="Top" Width="162"
+              Source="{Binding nesne.Image, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ImagePathConverter}}"
+               />
 
 
     </Grid>
